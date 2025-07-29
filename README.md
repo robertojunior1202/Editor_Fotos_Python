@@ -66,6 +66,16 @@ http://localhost:8501
 
 <br>
 
+Painel para Upload e Captura
+![alt text](img/dashboard_editor_fotos.png)
+
+<br>
+
+Exemplo de Uso!
+![alt text](img/exemplo_uso.png)
+
+<br>
+
 ## 🛠️ Tecnologias utilizadas
 - Python
 - Streamlit
@@ -77,3 +87,19 @@ http://localhost:8501
 
 ## 📷 Exemplos de Antes e Depois
 Na pasta <b>output</b> podem ser encontrados alguns exemplos de imagens transformadas
+
+Imagem Original 01
+![alt text](output/imagem_original_1.jpg)
+
+Imagem Transformada 01
+![alt text](output/imagem_transformada_1.png)
+
+<br>
+
+Imagem Original 02
+![alt text](output/imagem_original_2.jpg)
+
+<br>
+
+Imagem Transformada 02
+![alt text](output/imagem_transformada_2.png)
