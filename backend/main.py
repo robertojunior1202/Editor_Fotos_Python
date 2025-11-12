@@ -6,17 +6,20 @@ import cv2 as cv
 import numpy as np
 import os
 from datetime import datetime
-
+ 
 
 def upload_imagem():
     # Checagem se já existe imagem carregada
     if "imagem_carregada" in st.session_state:       
         #Aplicar Filtros
-        rotacao, escala, def_horiz, def_vert, brilho, contraste, transformacao_intensidade_potencia,transformacao_intensidade_log, filtro_negativo = filtros()
+        rotacao, escala, def_horiz, def_vert, brilho, contraste, transformacao_intensidade_potencia,transformacao_intensidade_log, filtro_negativo, \
+        limiarizacao,limiarizacao_at_mean,limiarizacao_at_g,limiarizacao_at_mediana,limiarizacao_at_otsu,limiarizacao_at_rc = filtros()
         #imagem_processada = aplicar_filtros(st.session_state.imagem_carregada,rotacao_graus=rotacao)
         imagem_processada = aplicar_filtros(st.session_state.imagem_carregada, rotacao_graus=rotacao, escala=escala, def_horiz=def_horiz, 
                     def_vert=def_vert,brilho=brilho, contraste=contraste, transformacao_intensidade_potencia=transformacao_intensidade_potencia, 
-                    transformacao_intensidade_log=transformacao_intensidade_log,filtro_negativo=filtro_negativo)
+                    transformacao_intensidade_log=transformacao_intensidade_log,filtro_negativo=filtro_negativo, limiarizacao=limiarizacao,
+                    limiarizacao_at_mean=limiarizacao_at_mean,limiarizacao_at_g=limiarizacao_at_g,limiarizacao_at_mediana=limiarizacao_at_mediana,
+                    limiarizacao_at_otsu=limiarizacao_at_otsu,limiarizacao_at_rc=limiarizacao_at_rc)
         st.session_state.imagem_processada = imagem_processada
           
         col1, col2 = st.columns(2)
@@ -52,11 +55,14 @@ def captura_imagem():
     # Checagem se já existe imagem carregada
     if "imagem_carregada" in st.session_state:
         #Aplicar Filtros
-        rotacao, escala, def_horiz, def_vert, brilho, contraste, transformacao_intensidade_potencia,transformacao_intensidade_log, filtro_negativo = filtros()
+        rotacao, escala, def_horiz, def_vert, brilho, contraste, transformacao_intensidade_potencia,transformacao_intensidade_log, filtro_negativo, \
+        limiarizacao,limiarizacao_at_mean,limiarizacao_at_g,limiarizacao_at_mediana,limiarizacao_at_otsu,limiarizacao_at_rc = filtros()
         #imagem_processada = aplicar_filtros(st.session_state.imagem_carregada,rotacao_graus=rotacao)
         imagem_processada = aplicar_filtros(st.session_state.imagem_carregada, rotacao_graus=rotacao, escala=escala, def_horiz=def_horiz, 
                     def_vert=def_vert,brilho=brilho, contraste=contraste, transformacao_intensidade_potencia=transformacao_intensidade_potencia, 
-                    transformacao_intensidade_log = transformacao_intensidade_log, filtro_negativo=filtro_negativo)
+                    transformacao_intensidade_log = transformacao_intensidade_log, filtro_negativo=filtro_negativo, limiarizacao=limiarizacao,
+                    limiarizacao_at_mean=limiarizacao_at_mean,limiarizacao_at_g=limiarizacao_at_g,limiarizacao_at_mediana=limiarizacao_at_mediana,
+                    limiarizacao_at_otsu=limiarizacao_at_otsu,limiarizacao_at_rc=limiarizacao_at_rc)
         st.session_state.imagem_processada = imagem_processada
           
         col1, col2 = st.columns(2)

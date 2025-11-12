@@ -32,6 +32,8 @@ def sidebar_busca():
 # Painel Filtros
 def filtros():
     with st.sidebar:
+        
+        
         st.markdown("---")
         st.markdown("### Ajustes Geométricos")
         rotacao = st.slider("Rotação", min_value=-180, max_value=180, value=0)
@@ -40,6 +42,7 @@ def filtros():
         def_horiz= st.slider("Deformação Horizontal", -0.5, 0.5, 0.0, 0.01)
         def_vert = st.slider("Deformação Vertical", -0.5, 0.5, 0.0, 0.01)
         
+        
         st.markdown("---")
         st.markdown("### Ajustes de Intensidade")
         brilho = st.slider("Brilho", -100, 100, 0, 1)
@@ -47,6 +50,34 @@ def filtros():
         transformacao_intensidade_potencia = st.slider("Transformação de Intensidade (Potência)", 0.1, 3.0, 1.0, 0.1)
         transformacao_intensidade_log = st.slider("Transformação Logarítmica (c)", min_value=0.0, max_value=100.0, value=0.0, step=1.0)
         filtro_negativo = st.toggle("Aplicar Filtro Negativo")
-        return rotacao, escala, def_horiz, def_vert, brilho, contraste, transformacao_intensidade_potencia,transformacao_intensidade_log, filtro_negativo
+        
+        
+        st.markdown("---")
+        st.markdown("### Filtros de Imagem")
+        
+        # Threshold
+        limiarizacao = st.slider("Threshold (Limiarização)", 0, 255, 0, 1)
+        # AdaptativeThreshold media local
+        limiarizacao_at_mean = st.slider("Adaptive Threshold (Local Mean)", 0, 255, 0, 1)
+        # AdaptativeThreshold gaussiana
+        limiarizacao_at_g = st.slider("Adaptive Threshold (Gaussian)", 0, 255, 0, 1)
+        # AdaptativeThreshold mediana
+        limiarizacao_at_mediana = st.slider("Adaptive Threshold (Mediana)", 0, 255, 0, 1)
+        # Limiarização adaptativa - Método de Otsu
+        limiarizacao_at_otsu = st.slider("Adaptive Threshold (Otsu)", 0, 255, 0, 1)
+        # Limiarização adaptativa - Método de Riddler-Calvard
+        limiarizacao_at_rc = st.slider("Adaptive Threshold (Riddler-Calvard)", 0, 255, 0, 1)
+        
+
+        # Recortar a imagem pela segmentação (Segmentação por Regiões)
+        st.markdown("### Segmentação por Regiões (em desenvolvimento)")
+        # Recortar a imagem pela segmentação (Segmentação por Regiões Baseadas em Clustering)
+        st.markdown("### Segmentação por Regiões Baseadas em Clustering (em desenvolvimento)")
+        # Recortar a imagem pela segmentação (Segmentação por Regiões Mean-Sheet)
+        st.markdown("### Segmentação por Regiões Mean-Sheet (em desenvolvimento)")
+        
+        
+        return rotacao, escala, def_horiz, def_vert, brilho, contraste, transformacao_intensidade_potencia,transformacao_intensidade_log,\
+        filtro_negativo,limiarizacao,limiarizacao_at_mean,limiarizacao_at_g,limiarizacao_at_mediana,limiarizacao_at_otsu,limiarizacao_at_rc
     
     
